@@ -44,51 +44,51 @@ body {
   }
   
   .wrapper {
-    height: 200px;
-    width: 300px;
+    height: 100px;
+    width: 150px;
     background-color: #E66A80;
     position: relative;
     display: flex;
     justify-content: center;
     z-index: 0;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .lid {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 50%;
+    width: 50%;
     top: 0;
     left: 0;
-    border-right: 150px solid transparent;
-    border-bottom: 100px solid transparent;
-    border-left: 150px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 75px solid transparent;
     transform-origin: top;
     transition: transform 0.4s ease-in-out;
 }
 
 .lid.one {
-    border-top: 100px solid #F28DA8;
+    border-top: 50px solid #F28DA8;
     transform: rotateX(0deg);
     z-index: 3;
 }
 
 .lid.two {
-    border-top: 100px solid #E66A80;
+    border-top: 50px solid #E66A80;
     transform: rotateX(90deg);
     z-index: 1;
 }
 
 .envelope {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 70%;
+    width: 50%;
     top: 0;
     left: 0;
-    border-top: 100px solid transparent;
-    border-right: 150px solid #FFD3DA;
-    border-bottom: 100px solid #FFD3DA;
-    border-left: 150px solid #FFC0CB;
+    border-top: 50px solid transparent;
+    border-right: 75px solid #FFD3DA;
+    border-bottom: 50px solid #FFD3DA;
+    border-left: 75px solid #FFC0CB;
     z-index: 3;
 }
 
@@ -106,8 +106,8 @@ body {
 
 .letter p {
     text-align: center;
-    font-size: 24px;
-    margin-top: 30px;
+    font-size: 12px;
+    margin-top: 15px;
     color: #D43F5E;
     font-weight: bold;
 }
@@ -139,7 +139,7 @@ button:hover {
 }
 
 .open .lid.two {
-    transform: rotateX(180deg);
+    transform: rotateX(180deg);a
     transition-delay: 0.25s;
 }
 
@@ -314,7 +314,7 @@ button:hover {
   transform: translate(-50%, -100%);
   width: 8vmin;
   height: 8vmin;
-  background-color: #e73030;
+  background-color: #f5f4f0;
   filter: blur(10vmin);
 }
 .flower__leaf {
@@ -324,8 +324,8 @@ button:hover {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #e73030;
-  background-image: linear-gradient(to top, #ec1010, #e73030);
+  background-color: #f5f4f0;
+  background-image: linear-gradient(to top, #f5f4f0, #f5f4f0);
   transform-origin: bottom center;
   opacity: 0.9;
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
@@ -345,7 +345,7 @@ button:hover {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #ec1010, #e73030);
+  background-image: linear-gradient(to top, #f5f4f0, #f5eeee);
   z-index: 1;
   opacity: 0.8;
 }
@@ -356,7 +356,7 @@ button:hover {
   width: 9vmin;
   height: 4vmin;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #f5e645;
 }
 .flower__white-circle::after {
   content: "";
@@ -1683,3 +1683,57 @@ button:hover {
   -webkit-animation-play-state: paused !important;
   animation-play-state: paused !important;
 } 
+
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: floatBalloon 8s linear infinite;
+  z-index: 20;
+  opacity: 0.9;
+}
+
+/* Left side */
+.balloon--left.balloon--1 { left: 20%; background: #ff4d4d; animation-delay: 0s; }
+.balloon--left.balloon--2 { left: 15%; background: #ffcc00; animation-delay: 2s; }
+
+/* Right side */
+.balloon--right.balloon--3 { right: 20%; background: #ea4b88; animation-delay: 1s; }
+.balloon--right.balloon--4 { right: 15%; background: #8af16a; animation-delay: 3s; }
+
+.balloon .string {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background-color: white;
+  transform: translateX(-50%);
+  animation: wiggleString 1s ease-in-out infinite;
+}
+
+
+@keyframes floatBalloon {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-300px) rotate(5deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-600px) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggleString {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(5deg); }
+  50% { transform: translateX(-50%) rotate(0deg); }
+  75% { transform: translateX(-50%) rotate(-5deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
